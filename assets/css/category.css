@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.category-main {
+    width: 99%;
+    height: auto;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.game-containerMain {
+    margin: 2%;
+}
+
+@media only screen and (max-width:470px) {
+    .game-containerMain {
+        margin: 2% 1.5%;
+    }
+}
