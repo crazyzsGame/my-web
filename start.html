@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="assets/js/index.js"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <meta name="theme-color" content="#35345e">
+
+    <title>Crazys Game</title>
+    <script>
+        let categories = {};
+        let objKey,
+            gamee4 = {};
+        fetch(`https://raw.githubusercontent.com/jd0703-jenish/Kfglgames/main/api.json`)
+            .then((response) => response.json())
+            .then((data) => {
+                // console.log(data);
+                sessionStorage.setItem("rowData", JSON.stringify(data.data));
+                data?.data?.forEach((game, index) => {
+                    if (game?.isSpecial) {
+                        const specialObj = {
+                            games: {
+                                ...game,
+                            },
+                            GameIndex: null,
+                            gameName: "candy_slash",
+                        };
+                        SpecialGame.push(specialObj);
+                    }
+
+                    categories[game?.category] = [];
+                    gamee4[game?.category] = [];
+                });
+                objKey = Object.keys(categories);
+                var categoriesData = '';
+                objKey?.forEach((key, index) => {
+                    categoriesData += `
+                        <div class="categories-container">
+                            <div class="categories-titleContainer">
+                                <div class="categories-title">
+                                    <h4>${key} Game</h4>
+                                </div>
+                                <div class="ViewMore-Container">
+                                    <p>View All</p>
+                                </div>
+                            </div>
+                            <div class="categories-main"  id="${key}"></div>
+                        </div>
+                    `;
+                    ;
+
+                    data?.data?.forEach((game, index) => {
+                        if (key == game?.category) {
+                            categories[key].push(game);
+                        }
+
+
+                        if (key == game?.category) {
+                            /// 4games
+                            const categoriesLength = categories[key].length;
+                            gamee4[key][0] = categories[key][0];
+                            gamee4[key][1] = categories[key][1];
+                            gamee4[key][2] = categories[key][2];
+                            gamee4[key][3] = categories[key][3];
+                            gamee4[key][4] = categories[key][4];
+                            // gamee4[key][5] = categories[key][5];
+                        }
+                    });
+                });
+
+                sessionStorage.setItem("categoriesData", categoriesData);
+                sessionStorage.setItem('gamee4', JSON.stringify(gamee4));
+                sessionStorage.setItem("categories", JSON.stringify(categories));
+
+                if (params.has("url") && params.has("name") && params.has("image")) {
+
+
+                    const gameObj = {
+                        title: params.get("name"),
+                        url: params.get("url"),
+                        thumbnailUrl: params.get("image"),
+                        thumbnailUrl100: params.get("image"),
+                        description: "",
+                    };
+                    sessionStorage.setItem("game", JSON.stringify(gameObj));
+                    // location.assign("games.html");
+                }
+                sessionStorage.setItem("specialGame", JSON.stringify(SpecialGame));
+                setTimeout(() => {
+                    location.assign("/")
+                }, 3000);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+        ;
+    </script>
+</head>
+
+<body onload="apiCall()">
+
+    <script>
+        sessionStorage.setItem("isDataLoaded", true);
+    </script>
+</body>
+
+</html>
+
+
+
+<!--
+ data-loading-strategy="1"
+data-lazy-fetch="true"
+ -->
+<!-- <amp-ad width="1024" height="768" type="doubleclick" data-loading-strategy="1" data-lazy-fetch="true"
+    data-slot="/21753324030,22811095679/financesbazzar.com"
+    data-multi-size="980x120,980x90,970x250,970x90,970x66,960x90,950x90,930x180,768x1024,750x300,750x200,750x100,728x90,600x300,580x400,480x320,468x60,336x280,320x480,320x100,320x50,300x1050,300x600,300x250,300x100,300x75,300x50,300x31,292x30,250x360,250x250,240x400,240x133,234x60,220x90,216x54,216x36,200x446,200x200,180x150,168x42,168x28,160x600,125x125,120x600,120x240,120x90,120x60,120x30,120x20,88x31">
+</amp-ad> -->
