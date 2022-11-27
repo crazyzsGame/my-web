@@ -33,9 +33,18 @@
 
   gtag('config', 'G-82YN6Y6WFX');
 </script>
+     <script>
+        $(function () {
+            $("#footer").load("footer.html");
+            $("#header").load("header.html");
+        });
+    </script>
 </head>
 
 <body onload="gameLoad()">
+    <div id="header">
+    </div>
+    <br>
     <div class="game-container">
         <div class="iframeMain-container">
             <div class="iframe-container" id="iframeDiv">
@@ -71,6 +80,7 @@
             </div>
         </div> -->
     </div>
+    <footer id="footer"></footer>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/game.js"></script>
 </body>
