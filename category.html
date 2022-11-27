@@ -42,9 +42,22 @@
 
   gtag('config', 'G-82YN6Y6WFX');
 </script>
+    
+    <link rel="stylesheet" href="./header.css">
+     <script>
+        $(function () {
+            $("#footer").load("footer.html");
+            $("#header").load("header.html");
+        });
+    </script>
+    
 </head>
 
 <body onload="setCategoryDiv()">
+    <div id="header">
+    </div>
+    <br>
+    <br>
     <div class="category-main" id="categoryDiv">
 
     </div>
@@ -55,6 +68,7 @@
         <div class="skeleton-card"></div>
         <div class="skeleton-card"></div>
     </div>
+    <footer id="footer"></footer>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/category.js"></script>
 </body>
