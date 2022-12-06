@@ -290,3 +290,15 @@ const setSearch = (isSearch) => {
 // ---setSearch
 
 // document.onselectstart = new Function("return false");
+
+if ('serviceWorker' in navigator) {
+  try {
+    navigator.serviceWorker.register("sw.js").then(r => {
+      // console.log(r);
+    }).catch(error => {
+      console.log(error)
+    })
+  } catch (error) {
+    console.log(error);
+  }
+}
