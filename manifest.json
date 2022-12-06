@@ -68,5 +68,5 @@
             "sizes": "512x512"
         }
     ],
-    "splash_pages": "/"
+    "splash_pages": "home.html"
 }
