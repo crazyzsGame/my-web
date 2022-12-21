@@ -27,7 +27,7 @@ const apiCall = () => {
             window.location.replace("start.html");
         }
 
-        fetch(`https://raw.githubusercontent.com/crazyzsGame/api/main/api.json`)
+        fetch(`/data/api.json`)
             .then((response) => response.json())
             .then((data) => {
                 // console.log(data);
