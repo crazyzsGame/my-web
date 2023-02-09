@@ -150,7 +150,7 @@
                 }
                 sessionStorage.setItem("specialGame", JSON.stringify(SpecialGame));
                 setTimeout(() => {
-                    location.assign("/home")
+                    location.replace("/home.html")
                 }, 3000);
             })
             .catch((e) => {
