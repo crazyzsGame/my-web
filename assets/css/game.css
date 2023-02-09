@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #35345e;
+}
+
+.game-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+
+.iframeMain-container {
+    background-color: #161527;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.iframe-container {
+    background-color: #35345e;
+    width: 80%;
+    height: 640px;
+    margin-top: 1%;
+    margin-bottom: 5%;
+}
+
+.alsoPlayGame-container {
+    width: 98%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex: 5;
+    padding: 1%;
+    padding-bottom: 5%;
+
+}
+
+.iframeContro-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #35345e;
+    color: #fff;
+    padding: 0px 3px;
+    font-size: 81%;
+}
+
+.game-containerMain {
+    margin-left: 4%;
+}
+
+.game-containerMain {
+        margin-left: 2%;
+        justify-content: unset !important;
+}
+
+@media only screen and (max-width:946px) {
+    .iframe-container {
+        width: 90%;
+        height: 585px;
+    }
+}
+
+@media only screen and (max-width:755px) {
+    .iframeGame-img {
+        width: 150px !important;
+    }
+}
+
+@media only screen and (max-width:468px) {
+    .game-containerMain {
+        margin-left: 2%;
+    }
+}

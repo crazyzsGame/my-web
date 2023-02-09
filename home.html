@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#35345e">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="./assets/img/logo.svg">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11031905380"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-11031905380');
+    </script>
+    <meta name="author"
+        content="Crazys Game. Game Development, 2D/3D Game Development, Unity Game Development, HTML Game Development">
+
+    <meta name="description"
+        content="Play free online games at Crazys Game, the best place to play high-quality browser games. We add new games every day. Have fun!" />
+
+    <meta name="keywords"
+        content="Play free online games at Crazys Game, the best place to play high-quality browser games. We add new games every day. Have fun!">
+
+    <link rel="stylesheet" href="assets/css/index.css">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1723229083372507"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+
+    <title>CrazysGame</title>
+
+    <link rel="shortcut icon" href="./assets/img/logo.svg">
+    <link rel="stylesheet" href="./header.css">
+    <script>
+        $(function () {
+
+            if (sessionStorage.getItem("categoriesData") == null && sessionStorage.getItem("isDataLoaded") == null) {
+                location.replace("/")
+            }
+
+            $("#footer").load("footer.html");
+            $("#header").load("header.html");
+        });
+    </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-82YN6Y6WFX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-82YN6Y6WFX');
+    </script>
+</head>
+
+<body onload="setData()">
+    <div id="header">
+    </div>
+    <br>
+    <div id="scrollDiv">
+        <div class="game-title sroll-title">
+            <h4>
+                Recommended for you
+            </h4>
+        </div>
+        <div class="mostPlayed-main">
+            <!-- <div class="srollLeft-container">
+                <div id="srollLeft-container">
+                    <img src="assets/img/srollLeftBtn.png" alt="srollLeftBtn">
+                </div>
+            </div> -->
+            <div class="mostPlayedGame-sroll" id="mostPlayedGame-sroll">
+                <div class="mostPlayed-container" id="mostPlayedContainer">
+
+                </div>
+            </div>
+            <!-- <div class="srollRight-container">
+                <div id="srollRight-container">
+                    <img src="assets/img/srollRightBtn.png" alt="srollLeftBtn">
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <br>
+    <div class="main-div" id="main-div">
+
+        <div class="categories-container">
+            <div class="categories-titleContainer">
+                <div class="categories-title">
+                    <h4>Fun Game</h4>
+                </div>
+                <!-- <div class="ViewMore-Container" onclick="setCategoryObj('Adventure')">
+                    <p>View All</p>
+                </div> -->
+            </div>
+            <div class="categories-main" id="">
+                <a class="game-containerMain" target="_blank" href="https://6237.play.gamezop.com/" id="gameDiv0">
+                    <div class="game-imgContainer">
+                        <img src="assets/creatives/0b8fa045-adc5-4fb0-b390-fb9fa7aa556f.png" style="object-fit: fill;" width="100%" alt="">
+                    </div>
+                    <div class="game-title">
+                        <h4></h4>
+                    </div>
+                </a>
+
+                <a class="game-containerMain" target="_blank" href="https://6237.play.gamezop.com/" id="gameDiv1">
+                    <div class="game-imgContainer">
+                        <img src="assets/creatives/5ca6d65e-512a-46ed-b2e1-889ca228eff8.jpg" style="object-fit: fill;" width="100%" alt="">
+                    </div>
+                    <div class="game-title">
+                        <h4></h4>
+                    </div>
+                </a>
+
+                <a class="game-containerMain" target="_blank" href="https://6238.play.quizzop.com/" id="gameDiv2">
+                    <div class="game-imgContainer">
+                        <img src="assets/creatives/3f5ba632-108c-426b-9842-033b64debd9d.png" style="object-fit: fill;" width="100%" alt="">
+                    </div>
+                    <div class="game-title">
+                        <!-- <h4>Funny Shooter - Destroy all enemies</h4> -->
+                    </div>
+                </a>
+
+                <a class="game-containerMain" target="_blank" href="https://6238.play.quizzop.com/" id="gameDiv3">
+                    <div class="game-imgContainer">
+                        <img src="assets/creatives/4d5732ba-1fa0-4d39-b893-86fb263ac446.png" style="object-fit: fill;" width="100%" alt="">
+                    </div>
+                    <div class="game-title">
+                        <!-- <h4>Rabbit Samurai 2</h4> -->
+                    </div>
+                </a>
+
+                <a class="game-containerMain" target="_blank" href="https://6237.play.gamezop.com/" id="gameDiv4">
+                    <div class="game-imgContainer">
+                        <img src="assets/creatives/5e2b9811-6d8d-468d-bb82-4e1cbc540050.png" style="object-fit: fill;" width="100%" alt="">
+                    </div>
+                    <div class="game-title">
+                        <!-- <h4>Pro Obunga vs CreepEnder</h4> -->
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer"></footer>
+
+    <script src="assets/js/index.js"></script>
+</body>
+
+</html>

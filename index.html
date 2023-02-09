@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#35345e">
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="./assets/img/logo.svg">
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1723229083372507"
+        crossorigin="anonymous"></script>
+    
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11031905380"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-11031905380');
+</script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/index.js"></script>
+
+    <link rel="stylesheet" href="assets/css/index.css">
+    <title>CrazysGame</title>
+    <link rel="shortcut icon" href="./assets/img/logo.svg">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-82YN6Y6WFX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-82YN6Y6WFX');
+    </script>
+    <script>
+        // let categories = {};
+        // let objKey,
+        //     gamee4 = {};
+        let SpecialGame = [];
+
+        // const params = new URLSearchParams(window.location.search);
+        if (params.has("url") && params.has("name") && params.has("image")) {
+            sessionStorage.setItem("isDataLoaded", false);
+        }
+
+        if (params.has("id")) {
+            sessionStorage.setItem("isDataLoaded", false);
+        }
+
+        if (params.has("category") && localStorage.getItem('categories') != null) {
+            sessionStorage.setItem("categoryKey", JSON.stringify(params.get("category")));
+            location.replace('/category')
+        }
+
+        fetch(`data/api.json`)
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+
+                sessionStorage.setItem("rowData", JSON.stringify(data));
+                console.log('game', data);
+                data?.forEach((game, index) => {
+
+                    if (game?.isSpecial) {
+                        const specialObj = {
+                            games: {
+                                ...game,
+                            },
+                            GameIndex: null,
+                            gameName: "candy_slash",
+                        };
+                        SpecialGame.push(specialObj);
+                    }
+
+                    if (params.has('id')) {
+                        if (game?.id === params.get('id')) {
+
+                            sessionStorage.setItem('game', JSON.stringify(game));
+                            location.assign('/game.html');
+                            return
+                        }
+                    }
+                    categories[game?.category] = [];
+                    gamee4[game?.category] = [];
+                });
+                objKey = Object.keys(categories);
+                var categoriesData = '';
+                objKey?.forEach((key, index) => {
+                    categoriesData += `
+                        <div class="categories-container">
+                            <div class="categories-titleContainer">
+                                <div class="categories-title">
+                                    <h4>${key} Game</h4>
+                                </div>
+                                <div class="ViewMore-Container">
+                                    <p>View All</p>
+                                </div>
+                            </div>
+                            <div class="categories-main"  id="${key}"></div>
+                        </div>
+                    `;
+                    ;
+
+                    data?.data?.forEach((game, index) => {
+
+
+                        if (key == game?.category) {
+                            categories[key].push(game);
+                        }
+
+
+                        if (key == game?.category) {
+                            /// 4games
+                            const categoriesLength = categories[key].length;
+                            gamee4[key][0] = categories[key][0];
+                            gamee4[key][1] = categories[key][1];
+                            gamee4[key][2] = categories[key][2];
+                            gamee4[key][3] = categories[key][3];
+                            gamee4[key][4] = categories[key][4];
+                            // gamee4[key][5] = categories[key][5];
+                        }
+                    });
+                });
+
+                // sessionStorage.setItem("categoriesData", categoriesData);
+                // sessionStorage.setItem('gamee4', JSON.stringify(gamee4));
+                // sessionStorage.setItem("categories", JSON.stringify(categories));
+
+                if (params.has("url") && params.has("name") && params.has("image")) {
+                    console.log(params.get("url"));
+                    console.log(params.get("name"));
+                    console.log(params.get("image"));
+
+                    const gameObj = {
+                        title: params.get("name"),
+                        url: params.get("url"),
+                        thumbnailUrl: params.get("image"),
+                        thumbnailUrl100: params.get("image"),
+                        description: "",
+                    };
+                    sessionStorage.setItem("game", JSON.stringify(gameObj));
+                    // location.assign("games.html");
+                }
+                sessionStorage.setItem("specialGame", JSON.stringify(SpecialGame));
+                setTimeout(() => {
+                    location.replace("/home.html")
+                }, 3000);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+        ;
+    </script>
+</head>
+
+<body onload="apiCall()">
+
+    <script>
+        sessionStorage.setItem("isDataLoaded", true);
+    </script>
+</body>
+
+</html>
