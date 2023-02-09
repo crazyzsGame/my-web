@@ -406,7 +406,7 @@ const apiCall = () => {
                 localStorage.setItem("categories", JSON.stringify(categories));
 
                 if (!params.has("id") || !params.has("category")) {
-                    location.replace("/home.html")
+                    location.replace("/home")
                 }
                 if (params.has("url") && params.has("name") && params.has("image")) {
 
@@ -536,8 +536,7 @@ const setGamesObj = (keys, index) => {
 
 const setCategoryObj = (key) => {
     sessionStorage.setItem("categoryKey", JSON.stringify(key));
-    // location.assign("category.html");
-    location.assign("index.html");
+    location.assign("category.html");
 };
 
 const setMostPlayed = (key) => {
