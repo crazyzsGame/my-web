@@ -2,6 +2,7 @@ let categories = {};
 let objKey,
     gamee4 = {};
 const categoriesDiv = document.getElementById("main-div");
+const isShow = false
 
 $("#main-div").hide();
 function mathRamdom(max, min) {
@@ -64,7 +65,7 @@ const apiCall = () => {
                         </div>
                     `;
                     ;
-                    if (index === 1) {
+                    if (index === 1 && isShow) {
 
                         categoriesData += `
                         <div class="categories-container">
@@ -125,7 +126,7 @@ const apiCall = () => {
                         </div>
                       `;
                     }
-                    if (index === 3) {
+                    if (index === 3 && isShow) {
 
                         categoriesData += `
                         <div class="categories-container">
@@ -187,7 +188,7 @@ const apiCall = () => {
                       `;
                     }
                    
-                    if (index === 5) {
+                    if (index === 5 && isShow) {
 
                         categoriesData += `
                         <div class="categories-container">
@@ -248,7 +249,7 @@ const apiCall = () => {
                         </div>
                       `;
                     }
-                    if (index === 6) {
+                    if (index === 6 && isShow) {
 
                         categoriesData += `
                         <div class="categories-container">
@@ -309,7 +310,7 @@ const apiCall = () => {
                         </div>
                       `;
                     }
-                    if (index === 7) {
+                    if (index === 7 && isShow) {
 
                         categoriesData += `
                         <div class="categories-container">
