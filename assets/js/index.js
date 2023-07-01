@@ -3,7 +3,7 @@ let objKey,
     gamee4 = {};
 const categoriesDiv = document.getElementById("main-div");
 const isShow = false
-
+ 
 $("#main-div").hide();
 function mathRamdom(max, min) {
     return `${`${Math.random() * (max - min) + min}`.split(".")[0]}`;
