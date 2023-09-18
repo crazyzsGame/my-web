@@ -2,7 +2,7 @@ let categories = {};
 let objKey,
     gamee4 = {};
 const categoriesDiv = document.getElementById("main-div");
-const isShow = true
+const isShow = false
  
 $("#main-div").hide();
 function mathRamdom(max, min) {
